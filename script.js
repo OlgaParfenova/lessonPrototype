@@ -83,8 +83,22 @@ console.log( age.__proto__ === Number.prototype); // true, т.к. __proto__ об
 class Hacker {}
 console.log( Hacker.__proto__ === Function.prototype); // true. Классы создаются с помощью new Function.
 
-function letFunc ()
-console.log( letFunc.__proto__ === ?); // Function.prototype.
+// function letFunc ()
+// console.log( letFunc.__proto__ === ?); // Function.prototype.
+//
+// const count = 34;
+// console.log( count.__proto__ === ?); // Number.prototype.
 
-const count = 34;
-console.log( count.__proto__ === ?); // Number.prototype.
+class Bird {
+    constructor(name) {
+        this.name = name;
+    }
+    hello() {console.log(this.name)}
+}
+
+let parrot = new Bird('Richie');
+
+console.log(parrot.__proto__.__proto__.__proto__); // null
+console.log(parrot.__proto__.constructor.__proto__); // Function.prototype
+console.log(parrot.__proto__.__proto__.__proto__); // null
+
